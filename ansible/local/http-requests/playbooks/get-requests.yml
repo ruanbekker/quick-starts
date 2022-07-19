@@ -9,7 +9,7 @@
   tasks:
   - name: make a get request
     uri:
-      url: "https://{{ api_baseurl }}/ {{ api_path }}"
+      url: "https://{{ api_baseurl }}/{{ api_path }}"
       method: GET
       body_format: json
       headers:
