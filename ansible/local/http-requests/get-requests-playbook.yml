@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  name: get requests playbook
+  gather_facts: False
+  vars:
+    api_baseurl: "jsonplaceholder.typicode.com"
+    api_path: "todos/1"
+    
+  tasks:
+  - name: make a get request
+    uri:
+      url: "https://{{ api_baseurl }}/ {{ api_path }}"
+      method: GET
+      body_format: json
+      headers:
+        Content-Type: application/json
+    register: response
+    
+  - name: return response
+    debug:
+      msg: "{{ response }}"
