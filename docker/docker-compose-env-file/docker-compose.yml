@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  app:
+    image: busybox
+    container_name: app
+    command: tail -f /dev/null
+    env_file:
+      - config/.env
+      - config/.env_extras
+    environment:
+      - APP_DEBUG=false
+    depends_on:
+      - db
+
+  db:
+    image: busybox
+    container_name: db
+    command: tail -f /dev/null
+    env_file:
+      - config/.env
