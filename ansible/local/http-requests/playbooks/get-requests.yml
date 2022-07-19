@@ -18,4 +18,4 @@
     
   - name: return response
     debug:
-      msg: "{{ response }}"
+      msg: "{{ response.json }}"
