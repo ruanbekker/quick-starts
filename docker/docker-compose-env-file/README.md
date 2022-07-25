@@ -56,3 +56,7 @@ Stop the containers:
 ```bash
 docker-compose down
 ```
+
+## Resources
+
+- https://docs.docker.com/compose/environment-variables/
