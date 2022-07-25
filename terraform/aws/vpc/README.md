@@ -12,6 +12,7 @@ This will create the following:
 - internet gateway for public routes
 - nat gateway with a eip for private routes
 - subnets tagged with Tier=public/private
+- defaults to the `us-west-1` region
 
 ## Subnets
 
