@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  name: generates file from template playbook
+  gather_facts: False
+  vars:
+    env: dev
+    app_ids: "'AAB,ABC,ADF'"
+    app_ip_address: "192.168.10.4"
+    include_extra_vars: true
+    user: nobody
+    group: nobody
+    api_secret: asdadasd
+    passw: "foobar!"
+  tasks:
+    - name: generate config from template
+      template:
+        src: "templates/vars.env.j2"
+        dest: vars.env
+        #owner: "{{ user }}"
+        #group: "{{ group }}"
+        mode: 0644
