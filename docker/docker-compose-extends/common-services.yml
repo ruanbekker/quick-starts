@@ -1,0 +1,20 @@
+services:
+  base:
+    build:
+      context: .
+      dockerfile: base.Dockerfile
+    labels:
+      project.name: "quick-starts"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+
+  logs:
+    labels:
+      project.name: "quick-starts"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+

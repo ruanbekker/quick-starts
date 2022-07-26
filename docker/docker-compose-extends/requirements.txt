@@ -1,0 +1,4 @@
+flask<2.0
+redis
+markupsafe==2.0.1
+gunicorn==20.0.4
