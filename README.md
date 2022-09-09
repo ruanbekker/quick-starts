@@ -11,6 +11,8 @@ The following quick-starts are available:
   - [docker/docker-compose-env-file](https://github.com/ruanbekker/quick-starts/tree/main/docker/docker-compose-env-file)
   - [docker/docker-compose-extends](https://github.com/ruanbekker/quick-starts/tree/main/docker/docker-compose-extends)
   - [docker/traefik-http](https://github.com/ruanbekker/quick-starts/tree/main/docker/traefik-http)
+- [Helm](https://github.com/ruanbekker/quick-starts/tree/main/helm)
+- [Kind](https://github.com/ruanbekker/quick-starts/tree/main/kind)
 - [Terraform](https://github.com/ruanbekker/quick-starts/tree/main/terraform)
   - [terraform/aws](https://github.com/ruanbekker/quick-starts/tree/main/terraform/aws)
   - [terraform//local-exec](https://github.com/ruanbekker/quick-starts/tree/main/terraform/local-exec)
