@@ -18,5 +18,6 @@ The following quick-starts are available:
 - [Terraform](https://github.com/ruanbekker/quick-starts/tree/main/terraform)
   - [terraform/aws](https://github.com/ruanbekker/quick-starts/tree/main/terraform/aws)
   - [terraform/local-exec](https://github.com/ruanbekker/quick-starts/tree/main/terraform/local-exec)
+  - [terraform/kafka-topics](https://github.com/ruanbekker/quick-starts/tree/main/terraform/kafka-topics)
 
 More will be added soon, but for the meanwhile you can see more examples on [ruan.dev/projects](https://ruan.dev/projects/)
