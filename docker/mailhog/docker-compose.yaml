@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    container_name: mailhog
+    ports:
+      - 1025:1025 # SMTP
+      - 8025:8025 # UI
+    networks:
+      - public
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+
+networks:
+  public:
+    name: public
