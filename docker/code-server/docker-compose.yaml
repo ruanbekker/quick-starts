@@ -1,0 +1,28 @@
+---
+# More info: https://hub.docker.com/r/linuxserver/code-server
+version: "3.9"
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:4.13.0
+    container_name: code-server
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Africa/Johannesburg
+      - PASSWORD=quickstart
+      - SUDO_PASSWORD=quickstart
+      - DEFAULT_WORKSPACE=/config/workspace 
+    volumes:
+      - code-server-volume:/config
+    ports:
+      - 8443:8443
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+
+volumes:
+  code-server-volume: 
+    driver: local
