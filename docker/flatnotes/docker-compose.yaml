@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  flatnotes:
+    image: dullage/flatnotes:v3
+    container_name: flatnotes
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      GUID: 1000
+      FLATNOTES_AUTH_TYPE: "password"
+      FLATNOTES_USERNAME: "admin"
+      FLATNOTES_PASSWORD: "password"
+      FLATNOTES_SECRET_KEY: "FmbqYkE3R1Sq8SDNj14dGCGL+R+PQjeC"
+    volumes:
+      - flatnotes-data-volume:/data
+      - flatnotes-index-volume:/data/.flatnotes
+    ports:
+      - 8080:8080
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+
+volumes:
+  flatnotes-data-volume: 
+    driver: local
+  flatnotes-index-volume: 
+    driver: local
+    
