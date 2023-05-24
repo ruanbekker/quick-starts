@@ -1,0 +1,57 @@
+---
+# More info: https://hub.docker.com/r/linuxserver/code-server
+version: "3.9"
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:4.13.0
+    container_name: code-server
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Africa/Johannesburg
+      - PASSWORD=quickstart
+      - SUDO_PASSWORD=quickstart
+      - DEFAULT_WORKSPACE=/config/workspace
+      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_TLS_CERTDIR=/certs/client
+      - DOCKER_TLS_VERIFY="1"
+      - DOCKER_MACHINE_NAME=docker
+      - DOCKER_CERT_PATH=/certs/client
+    networks:
+      - code-server
+    volumes:
+      - code-server-volume:/config
+      - certs:/certs/client
+    depends_on:
+      - docker
+    ports:
+      - 8443:8443
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+
+  docker:
+    image: docker:20.10-dind
+    privileged: yes
+    networks:
+      - code-server
+    volumes:
+      - certs:/certs/client
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+
+networks:
+  code-server:
+    name: code-server
+
+volumes:
+  code-server-volume: 
+    driver: local
+  certs: 
+    driver: local
