@@ -24,3 +24,7 @@ The following quick-starts are available:
   - [terraform/kafka-topics](https://github.com/ruanbekker/quick-starts/tree/main/terraform/kafka-topics)
 
 More will be added soon, but for the meanwhile you can see more examples on [ruan.dev/projects](https://ruan.dev/projects/)
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/ruanbekker/quick-starts.svg)](https://starchart.cc/ruanbekker/quick-starts)
