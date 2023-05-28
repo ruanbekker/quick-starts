@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:4.4.6
+    container_name: mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: todoapp
+    networks:
+      - app
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+
+  api:
+    build: .
+    container_name: api
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+    networks:
+      - app
+    environment:
+      NODE_ENV: development
+      MONGODB_URI: 'mongodb://root:password@mongodb:27017/todoapp?authMechanism=SCRAM-SHA-1&authSource=admin'
+      APP_PORT: 3000
+
+volumes:
+  mongodb:
+    driver: local
+
+networks:
+  app:
+    name: app
