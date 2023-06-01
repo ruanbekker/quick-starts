@@ -14,6 +14,7 @@ The following quick-starts are available:
   - [docker/docker-compose-extends](https://github.com/ruanbekker/quick-starts/tree/main/docker/docker-compose-extends)
   - [docker/flatnotes](https://github.com/ruanbekker/quick-starts/tree/main/docker/flatnotes)
   - [docker/kafka-single-node](https://github.com/ruanbekker/quick-starts/tree/main/docker/kafka-single-node)
+  - [docker/kafka-three-node](https://github.com/ruanbekker/quick-starts/tree/main/docker/kafka-three-node-cluster)
   - [docker/kafka-cluster](https://github.com/ruanbekker/quick-starts/tree/main/docker/kafka)
   - [docker/kafka-cluster-metrics](https://github.com/ruanbekker/quick-starts/tree/main/docker/kafka-cluster-metrics)
   - [docker/mailhog](https://github.com/ruanbekker/quick-starts/tree/main/docker/mailhog)
