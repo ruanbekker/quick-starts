@@ -1,0 +1,32 @@
+---
+# https://docs.localstack.cloud/getting-started/installation/
+version: "3.9"
+services:
+  localstack:
+    image: localstack/localstack:2.1
+    container_name: localstack
+    restart: unless-stopped
+    environment:
+      - DEBUG=${DEBUG-}
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - AWS_DEFAULT_REGION=us-east-1
+      # - EDGE_PORT=4566
+      # - SERVICES=lambda,s3
+    networks:
+      - quick-start
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "127.0.0.1:4566:4566" # localstack gw
+      - "127.0.0.1:4510-4559:4510-4559" # external services port ranges
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+
+networks:
+  quick-start:
+    name: quick-start
+
