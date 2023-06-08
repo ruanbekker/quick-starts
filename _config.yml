@@ -1,13 +1,47 @@
 # https://github.com/jekyll/minima/blob/master/_config.yml
+# https://github.com/MichaelCurrin/jekyll-blog-demo
 title: Quick Starts
-
-author:
-  name: Ruan Bekker
-
 description: >
   Collection of quick starts on docker, terraform, ansible, etc.
   
+author:
+  name: Ruan Bekker
+
+twitter_username: ruanbekker
+github_username: ruanbekker
+rss: RSS
+
+url: https://quickstarts.ruan.dev
+baseurl: /
+permalink: pretty
+
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+collections:
+  tools:
+    output: true
+  languages:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+
+exclude:
+  - docs/
+  - vendor/
+  - Gemfile 
+  - LICENSE
+  - Makefile
+  - README.md
+  - sample*.png
+
+liquid:
+  error_mode: strict
+
+strict_front_matter: true
