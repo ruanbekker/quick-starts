@@ -1,6 +1,7 @@
 # https://github.com/jekyll/minima/blob/master/_config.yml
 # https://github.com/MichaelCurrin/jekyll-blog-demo
 # https://talk.jekyllrb.com/t/minima-header-html-functionality/6721
+# https://www.chrishasz.com/yaght/general/working-with-minima
 title: Quick Starts
 description: >
   Collection of quick starts on docker, terraform, ansible, etc.
