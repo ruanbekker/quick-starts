@@ -1,0 +1,13 @@
+# https://github.com/jekyll/minima/blob/master/_config.yml
+title: Quick Starts
+
+author:
+  name: Ruan Bekker
+
+description: >
+  Collection of quick starts on docker, terraform, ansible, etc.
+  
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
