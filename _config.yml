@@ -1,5 +1,6 @@
 # https://github.com/jekyll/minima/blob/master/_config.yml
 # https://github.com/MichaelCurrin/jekyll-blog-demo
+# https://talk.jekyllrb.com/t/minima-header-html-functionality/6721
 title: Quick Starts
 description: >
   Collection of quick starts on docker, terraform, ansible, etc.
@@ -20,28 +21,31 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-collections:
-  tools:
-    output: true
-  languages:
-    output: true
+header_files:
+  - about.md
 
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: page
+# collections:
+#   tools:
+#     output: true
+#   languages:
+#     output: true
 
-exclude:
-  - docs/
-  - vendor/
-  - Gemfile 
-  - LICENSE
-  - Makefile
-  - README.md
-  - sample*.png
+# defaults:
+#   - scope:
+#       path: ""
+#     values:
+#       layout: page
 
-liquid:
-  error_mode: strict
+# exclude:
+#   - docs/
+#   - vendor/
+#   - Gemfile 
+#   - LICENSE
+#   - Makefile
+#   - README.md
+#   - sample*.png
 
-strict_front_matter: true
+# liquid:
+#   error_mode: strict
+
+# strict_front_matter: true
