@@ -28,8 +28,6 @@ Verify connectivity by viewing the nodes:
 
 ```bash
 kubectl get nodes --context kind-workshop   
-NAME                     STATUS   ROLES           AGE   VERSION
-workshop-control-plane   Ready    control-plane   95s   v1.25.9
 ```
 
 Switch to the `kind-workshop` kubernetes context:
