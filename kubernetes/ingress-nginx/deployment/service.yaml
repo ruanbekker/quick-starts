@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: webapp
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 5000
