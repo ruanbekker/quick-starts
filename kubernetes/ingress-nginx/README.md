@@ -21,19 +21,19 @@ brew install kind
 Then deploy a 1 node cluster:
 
 ```bash
-kind create cluster --name workshop --config kind-config.yaml
+kind create cluster --name quickstart --config kind-config.yaml
 ```
 
 Verify connectivity by viewing the nodes:
 
 ```bash
-kubectl get nodes --context kind-workshop   
+kubectl get nodes --context kind-quickstart   
 ```
 
-Switch to the `kind-workshop` kubernetes context:
+Switch to the `kind-quickstart` kubernetes context:
 
 ```bash
-kubectl config use-context kind-workshop
+kubectl config use-context kind-quickstart
 ```
 
 ### Deploy Ingress Nginx
@@ -86,7 +86,7 @@ kubectl delete -f deployment/
 Tear down the cluster:
 
 ```bash
-kind delete cluster --name workshop
+kind delete cluster --name quickstart
 ```
 
 ## Resources
