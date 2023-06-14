@@ -23,10 +23,14 @@ The following quick-starts are available:
   - [docker/traefik-http](https://github.com/ruanbekker/quick-starts/tree/main/docker/traefik-http)
 - [Helm](https://github.com/ruanbekker/quick-starts/tree/main/helm)
 - [Kind](https://github.com/ruanbekker/quick-starts/tree/main/kind)
+  - [kind/3-node-cluster](https://github.com/ruanbekker/quick-starts/tree/main/kind/3-node-cluster)
 - [Terraform](https://github.com/ruanbekker/quick-starts/tree/main/terraform)
   - [terraform/aws](https://github.com/ruanbekker/quick-starts/tree/main/terraform/aws)
-  - [terraform/local-exec](https://github.com/ruanbekker/quick-starts/tree/main/terraform/local-exec)
+  - [terraform/aws-localstack](https://github.com/ruanbekker/quick-starts/tree/main/terraform/aws-localstack)
+  - [terraform/docker](https://github.com/ruanbekker/quick-starts/tree/main/terraform/docker)
   - [terraform/kafka-topics](https://github.com/ruanbekker/quick-starts/tree/main/terraform/kafka-topics)
+  - [terraform/local-exec](https://github.com/ruanbekker/quick-starts/tree/main/terraform/local-exec)
+  
 
 More will be added soon, but for the meanwhile you can see more examples on [ruan.dev/projects](https://ruan.dev/projects/)
 
