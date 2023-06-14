@@ -37,7 +37,8 @@ services:
       - ethnet
 
   prysm:
-    image: gcr.io/prysmaticlabs/prysm/beacon-chain:stable 
+    image: gcr.io/prysmaticlabs/prysm/beacon-chain:stable
+    container_name: prysm
     restart: always
     volumes:
       - ./data/prysm:/data
