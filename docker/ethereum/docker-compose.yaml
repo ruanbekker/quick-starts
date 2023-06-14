@@ -1,0 +1,61 @@
+version: "3"
+
+services:
+  geth:
+    image: ethereum/client-go:v1.11.6
+    container_name: geth
+    restart: always
+    stop_grace_period: 1m
+    ports:
+      - 8545:8545
+      - 8546:8546
+      - 9191:9191
+      - 30303:30303
+      - 30304:30304
+    volumes:
+      - ./data/geth:/data
+      - ./jwt.hex:/jwt/jwt.hex:ro
+    command: >
+      --sepolia
+      --syncmode light
+      --datadir=/data
+      --http
+      --http.api eth,net,web3,txpool,engine,admin
+      --http.addr 0.0.0.0
+      --http.port 8545
+      --http.corsdomain '*'
+      --ws
+      --ws.api eth,web3,net
+      --authrpc.addr 0.0.0.0
+      --authrpc.port 8551
+      --authrpc.jwtsecret /jwt/jwt.hex
+      --authrpc.vhosts '*'
+      --metrics
+      --metrics.addr=0.0.0.0
+      --metrics.port=9191
+    networks:
+      - ethnet
+
+  prysm:
+    image: gcr.io/prysmaticlabs/prysm/beacon-chain:stable 
+    restart: always
+    volumes:
+      - ./data/prysm:/data
+      - ./jwt.hex:/jwt/jwt.hex:ro
+    command: >
+      --sepolia
+      --datadir=/data
+      --rpc-host=0.0.0.0
+      --execution-endpoint=http://geth:8551
+      --checkpoint-sync-url=https://checkpoint-sync.sepolia.ethpandaops.io
+      --genesis-beacon-api-url=https://checkpoint-sync.sepolia.ethpandaops.io
+      --jwt-secret=/jwt/jwt.hex
+      --genesis-state=/genesis.ssz
+      --suggested-fee-recipient=0x9A675eDF85532D9f3924Ff18251c5fEcB7398AC7
+      --accept-terms-of-use
+    networks:
+      - ethnet
+
+networks:
+  ethnet:
+    name: ethnet
