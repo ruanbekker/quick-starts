@@ -36,12 +36,12 @@ services:
     networks:
       - ethnet
 
-  prysm:
+  prysm-beacon:
     image: gcr.io/prysmaticlabs/prysm/beacon-chain:stable
-    container_name: prysm
+    container_name: prysm-beacon
     restart: always
     volumes:
-      - ./data/prysm:/data
+      - ./data/prysm-beacon:/data
       - ./jwt.hex:/jwt/jwt.hex:ro
     command: >
       --sepolia
@@ -54,6 +54,29 @@ services:
       --genesis-state=/genesis.ssz
       --suggested-fee-recipient=0x9A675eDF85532D9f3924Ff18251c5fEcB7398AC7
       --accept-terms-of-use
+    networks:
+      - ethnet
+      
+  prysm-validator:
+    image: gcr.io/prysmaticlabs/prysm/validator:stable
+    container_name: prysm-validator
+    restart: unless-stopped
+    depends_on:
+      - prysm-beacon
+    ports:
+      - 4242:4242
+    volumes:
+      - ./data/prysm-wallet:/wallet
+      - ./data/prysm-validator:/validatorDB
+    command:
+      - --beacon-rpc-provider=prysm:4000
+      - --monitoring-host=0.0.0.0
+      - --accept-terms-of-use
+      - --suggested-fee-recipient=0x9A675eDF85532D9f3924Ff18251c5fEcB7398AC7
+      - --wallet-dir=/wallet
+      - --wallet-password-file=/wallet/password.txt
+      - --datadir=/validatorDB
+      - --sepolia
     networks:
       - ethnet
 
