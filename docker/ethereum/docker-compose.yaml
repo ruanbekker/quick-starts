@@ -69,7 +69,7 @@ services:
       - ./data/prysm-wallet:/wallet
       - ./data/prysm-validator:/validatorDB
     command:
-      - --beacon-rpc-provider=prysm:4000
+      - --beacon-rpc-provider=prysm-beacon:4000
       - --monitoring-host=0.0.0.0
       - --accept-terms-of-use
       - --suggested-fee-recipient=0x9A675eDF85532D9f3924Ff18251c5fEcB7398AC7
