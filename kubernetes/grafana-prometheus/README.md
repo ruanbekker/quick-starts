@@ -125,4 +125,6 @@ kind delete cluster --name quickstart
 
 ## Resources
 
+- [Prometheus Helm Chart](https://github.com/prometheus-community/helm-charts)
+- [Grafana Helm Chart](https://github.com/grafana/helm-charts)
 - [Kind: Ingress Nginx](https://kind.sigs.k8s.io/docs/user/ingress/)
