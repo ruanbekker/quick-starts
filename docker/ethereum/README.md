@@ -44,6 +44,12 @@ View the sync progress:
 curl -s -XPOST -H 'Content-Type: application/json' --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' http://127.0.0.1:8545
 ```
 
+View the current block number:
+
+```bash
+curl -s -XPOST -H "Content-type: application/json" -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' localhost:8545  | jq -r '.result' | tr -d '\n' |  xargs -0 printf "%d"
+```
+
 ## Resources
 
 - [Go-Eth](https://geth.ethereum.org/docs)
