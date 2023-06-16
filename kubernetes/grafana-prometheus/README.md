@@ -79,7 +79,7 @@ kubectl -n monitoring get pods,pv,pvc
 One the deployment has finished, you can port forward to the prometheus service:
 
 ```bash
-kubectl -n port-forward svc/prometheus 9090:9090
+kubectl -n port-forward svc/prometheus-server 9090:80
 ```
 
 ## Deploy Grafana
