@@ -1,0 +1,5 @@
+database_host     = "127.0.0.1"
+database_port     = "3306"
+database_username = "root"
+database_password = "rootpassword"
+keybase_username  = "rbekker87"
