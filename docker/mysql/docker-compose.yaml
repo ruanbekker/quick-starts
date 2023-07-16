@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=sample
+      - MYSQL_ROOT_PASSWORD=rootpassword
+    networks:
+      - quickstart
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+
+networks:
+  quickstart:
+    name: quickstart
