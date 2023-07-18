@@ -1,10 +1,16 @@
 import pika
 import os
+import time
+import sys
 
 RABBITMQ_HOST = os.getenv('RABBITMQ_HOST', 'localhost')
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(host=RABBITMQ_HOST))
-channel = connection.channel()
+try:
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host=RABBITMQ_HOST))
+    channel = connection.channel()
+except pika.exceptions.AMQPConnectionError:
+    print(f"Could not connect to RabbitMQ at {RABBITMQ_HOST}")
+    sys.exit(1)
 
 channel.queue_declare(queue='hello')
 
