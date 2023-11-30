@@ -1,0 +1,121 @@
+version: "3"
+
+services:
+  gitea:
+    image: gitea/gitea:1.21.1
+    container_name: gitea
+    restart: unless-stopped
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__database__DB_TYPE=postgres
+      - GITEA__database__HOST=gitea-db:5432
+      - GITEA__database__NAME=gitea
+      - GITEA__database__USER=gitea
+      - GITEA__database__PASSWD=gitea
+      - GITEA__mailer__ENABLED=true
+      - GITEA__mailer__FROM=gitea@localhost
+      - GITEA__mailer__PROTOCOL=smtp
+      - GITEA__mailer__SMTP_ADDR=gitea-mail:1025
+      - GITEA__mailer__USER=
+      - GITEA__mailer__PASSWD=
+      # docker run -it --rm gitea/gitea:1 gitea generate secret SECRET_KEY
+      - GITEA__security__SECRET_KEY=replace-me
+      # docker run -it --rm  gitea/gitea:1 gitea generate secret INTERNAL_TOKEN
+      - GITEA__security__INTERNAL_TOKEN=replace-me
+      - GITEA__actions__enabled=true
+      - GITEA__server__local_root_url=http://gitea:3000
+      # https://docs.gitea.com/installation/install-with-docker
+    networks:
+      - quick-starts
+    depends_on:
+      gitea-db:
+        condition: service_healthy
+      gitea-mail:
+        condition: service_started
+    volumes:
+      - gitea-data-volume:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 3000:3000
+      - 222:22
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+
+  gitea-runner:
+    image: gitea/act_runner:nightly
+    container_name: gitea-runner
+    restart: unless-stopped
+    environment:
+      # docker run --entrypoint="" --rm -it gitea/act_runner:latest act_runner generate-config > configs/gitea-runner/config.yaml
+      CONFIG_FILE: /config.yaml
+      # gitea --config /etc/gitea/app.ini actions generate-runner-token
+      # docker exec -it --user git gitea gitea --config /data/gitea/conf/app.ini actions generate-runner-token
+      GITEA_RUNNER_REGISTRATION_TOKEN: "<replace-me>"
+      GITEA_RUNNER_NAME: "default-runner"
+      GITEA_RUNNER_LABELS: "quickstart"
+      GITEA_INSTANCE_URL: "http://gitea:3000"
+    networks:
+      - quick-starts
+    volumes:
+      - ./configs/gitea-runner/config.yaml:/config.yaml
+      - gitea-runner-data-volume:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+
+  gitea-db:
+    image: postgres:14
+    container_name: gitea-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=gitea
+      - POSTGRES_PASSWORD=gitea
+      - POSTGRES_DB=gitea
+    networks:
+      - quick-starts
+    volumes:
+      - gitea-db-data-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+
+  gitea-mail:
+    image: mailhog/mailhog:v1.0.1
+    container_name: gitea-mail
+    ports:
+      - 1025:1025 # SMTP
+      - 8025:8025 # UI
+    networks:
+      - quick-starts
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+
+volumes:
+  gitea-data-volume: 
+    driver: local
+  gitea-runner-data-volume:
+    driver: local
+  gitea-db-data-volume:
+    driver: local
+
+networks:
+  quick-starts:
+    name: quick-starts
