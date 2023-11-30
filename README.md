@@ -1,7 +1,7 @@
 # quick-starts
 Collection of quick starts on docker, terraform, ansible, etc.
 
-![quick-starts stars](https://img.shields.io/github/stars/ruanbekker%2Fquick-starts) | [![Twitter Badge](https://badgen.net/badge/icon/twitter?icon=twitter&label)](https://twitter.com/ruanbekker)
+[![quick-starts stars](https://img.shields.io/github/stars/ruanbekker%2Fquick-starts)](https://github.com/ruanbekker/quick-starts) | [![Twitter Badge](https://badgen.net/badge/icon/twitter?icon=twitter&label)](https://twitter.com/ruanbekker)
 
 ## Index
 
