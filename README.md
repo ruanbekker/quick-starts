@@ -16,6 +16,7 @@ The following quick-starts are available:
   - [docker/gitea](./docker/gitea/)
   - [docker/kafka-single-node](./docker/kafka-single-node)
   - [docker/kafka-three-node](./docker/kafka-three-node-cluster)
+  - [docker/kafka-three-node-kraft](./docker/kafka-three-node-cluster-kraft)
   - [docker/kafka-cluster](./docker/kafka)
   - [docker/kafka-cluster-metrics](./docker/kafka-cluster-metrics)
   - [docker/mailhog](./docker/mailhog/)
