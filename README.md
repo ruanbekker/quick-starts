@@ -1,6 +1,9 @@
 # quick-starts
 Collection of quick starts on docker, terraform, ansible, etc
 
+![image](https://github.com/ruanbekker/quick-starts/assets/567298/1b92e58e-40e0-44cb-9fd2-3452baf67325)
+
+
 ## Index
 
 The following quick-starts are available:
@@ -22,6 +25,7 @@ The following quick-starts are available:
   - [docker/mailhog](./docker/mailhog/)
   - [docker/nodejs-express-mongodb](./docker/nodejs-express-mongodb)
   - [docker/redis](./docker/redis)
+  - [docker/spark-cluster](./docker/spark-cluster)
   - [docker/traefik-http](./docker/traefik-http)
 - [Helm](./helm)
 - [Kind](./kind)
