@@ -27,6 +27,7 @@ The following quick-starts are available:
   - [redis](./docker/redis)
   - [spark-cluster](./docker/spark-cluster)
   - [traefik-http](./docker/traefik-http)
+  - [traefik-https: with http challenge](./docker/traefik-https)
 - [Helm](./helm)
 - [Kind](./kind)
   - [3-node-cluster](./kind/3-node-cluster)
