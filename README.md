@@ -40,6 +40,7 @@ The following quick-starts are available:
   - [aws-localstack](./terraform/aws-localstack)
   - [docker](./terraform/docker)
   - [kafka-topics](./terraform/kafka-topics)
+  - [kind-kubernetes](./terraform/kind-kubernetes)
   - [local-exec](./terraform/local-exec)
   
 
