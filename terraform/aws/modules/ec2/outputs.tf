@@ -10,8 +10,3 @@ output "ip" {
   sensitive   = false
 }
 
-output "subnet" {
-  description = "the subnet id which will be used"
-  value       = var.subnet_id
-  sensitive   = false
-}

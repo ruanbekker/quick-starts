@@ -5,8 +5,7 @@ module "example" {
   aws_profile        = "test"
   project_identifier = "quickstart"
   keyname            = "ssh-default"
-  vpc_id             = "vpc-xxxxxxxx"
-  subnet_id          = "subnet-xxxxxx"
+  selected_ami_type  = "amazon"
 }
 
 output "instance_id" {
