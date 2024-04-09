@@ -9,19 +9,9 @@ variable "aws_profile" {
   description = "the aws profile to use to authenticate"
 }
 
-variable "vpc_id" {
-  type        = string
-  description = "the vpc id to use"
-}
-
 variable "keyname" {
   type        = string
   description = "ssh key to use"
-}
-
-variable "subnet_id" {
-  type        = string
-  description = "the subnet id where the ec2 instance needs to be placed in"
 }
 
 variable "instance_type" {
@@ -64,4 +54,30 @@ variable "arch" {
   type        = string
   default     = "x86_64"
   description = "architecture"
+}
+
+variable "ami_configs" {
+  type = map(object({
+    owners : list(string)
+    name_pattern : string
+    architecture : string
+  }))
+
+  default = {
+    ubuntu = {
+      owners       = ["099720109477"]
+      name_pattern = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-*-server-*"
+      architecture = "x86_64"
+    },
+    amazon = {
+      owners       = ["amazon"]
+      name_pattern = "amzn2-ami-hvm-*"
+      architecture = "x86_64"
+    }
+  }
+}
+
+variable "selected_ami_type" {
+  description = "The selected AMI type (e.g., 'ubuntu', 'amazon')"
+  type        = string
 }

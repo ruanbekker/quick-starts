@@ -14,8 +14,7 @@ module "example" {
   aws_profile        = "default"
   project_identifier = "quickstart"
   keyname            = "ssh-default"
-  vpc_id             = "vpc-xxxxxxxxx"
-  subnet_id          = "subnet-xxxxxx"
+  selected_ami_type  = "amazon"
 }
 
 output "instance_id" {
@@ -33,20 +32,19 @@ This module accepts parameters thats been referenced as variables from the modul
 
 The following variables can be passed as arguments to override the defaults:
 
-Variable Name         | Description                          | Required  | Default Value
---------------------- | ------------------------------------ | --------- | -------------
-`aws_profile`         | AWS Profile                          | True      | N/A
-`vpc_id`              | VPC ID                               | True      | N/A
-`keyname`             | SSH Key Pair                         | True      | N/A
-`subnet_id`           | VPC SubnetId                         | True      | N/A
-`aws_region`          | AWS Region                           | False     | eu-west-1
-`instance_type`       | EC2 Instance Type                    | False     | t3a.nano
-`project_identifier`  | Your Project Name                    | False     | terraform-quick-start
-`ebs_root_size_in_gb` | EBS Root Disk Size                   | False     | 20
-`environment_name`    | Your Environment Name                | False     | test
-`team_name`           | Your Team Name                       | False     | engineering
-`owner_name`          | Owner of this resource               | False     | james.dean
-`arch`                | The architecture type (aarch/x86_64) | False     | x86_64
+Variable Name         | Description                            | Required  | Default Value
+--------------------- | -------------------------------------- | --------- | -------------
+`aws_profile`         | AWS Profile                            | True      | N/A
+`keyname`             | SSH Key Pair                           | True      | N/A
+`aws_region`          | AWS Region                             | False     | eu-west-1
+`instance_type`       | EC2 Instance Type                      | False     | t3a.nano
+`project_identifier`  | Your Project Name                      | False     | terraform-quick-start
+`ebs_root_size_in_gb` | EBS Root Disk Size                     | False     | 20
+`environment_name`    | Your Environment Name                  | False     | test
+`team_name`           | Your Team Name                         | False     | engineering
+`owner_name`          | Owner of this resource                 | False     | james.dean
+`arch`                | The architecture type (aarch/x86_64)   | False     | x86_64
+`selected_ami_type`   | The linux distribution (amazon/ubuntu) | True      | N/A
 
 ## Usage
 
